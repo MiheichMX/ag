@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты и Реквизиты — AGTECH.RU</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0d0d0f',
+              card: '#16171a',
+              cardHover: '#1f2126',
+              border: '#2a2c33',
+              orange: '#FF5500',
+              orangeHover: '#E04B00',
+              textMuted: '#9a9ea8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0d0d0f;
+      color: #f0f1f5;
+    }
+    .gradient-orange-bg {
+      background: radial-gradient(circle at center, rgba(255, 85, 0, 0.12) 0%, rgba(13, 13, 15, 0) 70%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+
+  <!-- Header / Сквозная Шапка -->
+  <header class="sticky top-0 z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-orange via-amber-600 to-black p-[2px] shadow-lg group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-brand-card rounded-full flex items-center justify-center font-black text-white text-lg tracking-tighter">
+            <span class="text-brand-orange">A</span>G
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-xl tracking-wider text-white uppercase leading-none">
+            AG<span class="text-brand-orange">TECH</span>
+          </span>
+          <span class="text-[10px] text-brand-textMuted tracking-widest uppercase mt-1">Органометаллокерамика</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Главная</a>
+        <a href="auto.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Для авто</a>
+        <a href="biz.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Промышленность и автопарки</a>
+        <a href="tech.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Технология</a>
+        <a href="blog.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Статьи</a>
+        <a href="contacts.html" class="text-sm font-semibold text-brand-orange transition-colors">Контакты</a>
+      </nav>
+
+      <!-- Contact Info Header -->
+      <div class="hidden sm:flex flex-col items-end text-right">
+        <a href="tel:+79139129900" class="font-bold text-white hover:text-brand-orange transition-colors text-base flex items-center gap-2">
+          <i class="fa-solid fa-phone text-brand-orange text-xs"></i>
+          +7 (913) 912-99-00
+        </a>
+        <a href="https://t.me/AGtech" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 mt-0.5">
+          <i class="fa-brands fa-telegram"></i>
+          @AGtech
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-brand-textMuted hover:text-white focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-card border-b border-brand-border px-4 pt-3 pb-6 space-y-3">
+      <a href="index.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Главная</a>
+      <a href="auto.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Для авто</a>
+      <a href="biz.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Промышленность и автопарки</a>
+      <a href="tech.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Технология</a>
+      <a href="blog.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Статьи</a>
+      <a href="contacts.html" class="block text-brand-orange font-semibold text-base py-2">Контакты</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-12 lg:py-16 gradient-orange-bg border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+        Контакты и Поддержка <span class="text-brand-orange">AGTECH</span>
+      </h1>
+      <p class="mt-3 text-sm sm:text-lg text-brand-textMuted max-w-2xl mx-auto">
+        Свяжитесь с отделом продаж, главным технологом или отправьте заявку на расчёт под ваш автопарк или промышленный объект.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Contact Section -->
+  <section class="py-12 bg-brand-black flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+
+        <!-- Direct Phone -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 hover:border-brand-orange transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Телефон отдела продаж</span>
+            <h3 class="text-2xl font-black text-white mt-1 mb-2">+7 (913) 912-99-00</h3>
+            <p class="text-xs text-brand-textMuted">Пн–Пт с 9:00 до 18:00 (МСК+4 / Новосибирск). Бесплатная консультация по подбору составов.</p>
+          </div>
+          <a href="tel:+79139129900" class="mt-6 inline-flex items-center justify-center py-3 px-4 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-bold transition-all text-center">
+            <i class="fa-solid fa-phone mr-2"></i> Позвонить сейчас
+          </a>
+        </div>
+
+        <!-- Telegram / Messengers -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 hover:border-sky-500 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 text-2xl mb-4">
+              <i class="fa-brands fa-telegram"></i>
+            </div>
+            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">Прямая связь с технологом</span>
+            <h3 class="text-2xl font-black text-white mt-1 mb-2">@AGtech</h3>
+            <p class="text-xs text-brand-textMuted">Задайте вопрос главному технологу в Telegram. Оперативный ответ в течение 10–15 минут.</p>
+          </div>
+          <a href="https://t.me/AGtech" target="_blank" class="mt-6 inline-flex items-center justify-center py-3 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all text-center">
+            <i class="fa-brands fa-telegram mr-2 text-base"></i> Написать в Telegram
+          </a>
+        </div>
+
+        <!-- Email & Office -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 hover:border-brand-orange transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange text-xl mb-4">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Электронная почта</span>
+            <h3 class="text-xl font-extrabold text-white mt-1 mb-2">2925470@mail.ru</h3>
+            <p class="text-xs text-brand-textMuted mb-2"><i class="fa-solid fa-location-dot text-brand-orange mr-1"></i> г. Новосибирск, ул. Большевистская, 255</p>
+            <p class="text-xs text-brand-textMuted"><i class="fa-solid fa-building text-brand-orange mr-1"></i> ООО «Гроссобин» / AG-Холдинг</p>
+          </div>
+          <a href="mailto:2925470@mail.ru" class="mt-6 inline-flex items-center justify-center py-3 px-4 rounded-xl bg-brand-black hover:bg-brand-cardHover border border-brand-border text-white text-xs font-bold transition-all text-center">
+            Написать на Email
+          </a>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        
+        <!-- Feedback Form -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8">
+          <h2 class="text-2xl font-black text-white uppercase mb-2">Задать вопрос или Запросить КП</h2>
+          <p class="text-xs text-brand-textMuted mb-6">
+            Заполните форму, и наши специалисты подготовят персональный расчёт окупаемости или проконсультируют по вашей технике.
+          </p>
+
+          <form onsubmit="event.preventDefault(); alert('Спасибо за обращение! Наш главный технолог свяжется с вами в ближайшее время.');" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-white mb-1 uppercase tracking-wider">Ваше имя или название компании</label>
+              <input type="text" placeholder="Иван / ООО «Логистика»" required class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-white mb-1 uppercase tracking-wider">Телефон</label>
+                <input type="tel" placeholder="+7 (___) ___-__-__" required class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-white mb-1 uppercase tracking-wider">Email</label>
+                <input type="email" placeholder="mail@example.com" class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white mb-1 uppercase tracking-wider">Тема обращения</label>
+              <select class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors">
+                <option value="b2c">Для личного автомобиля (B2C)</option>
+                <option value="b2b">Расчет ROI / КП для автопарка (B2B)</option>
+                <option value="industry">Промышленность / Станки / ГЭС</option>
+                <option value="partner">Сотрудничество и дилерство</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white mb-1 uppercase tracking-wider">Сообщение или состав техники</label>
+              <textarea rows="4" placeholder="Опишите симптомы техники, объем мотора или состав автопарка (напр., 5 тягачей DAF, 2 экскаватора)..." class="w-full bg-brand-black border border-brand-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-orange transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-sm transition-all shadow-lg shadow-brand-orange/20">
+              <i class="fa-solid fa-paper-plane mr-2"></i> Отправить запрос
+            </button>
+          </form>
+        </div>
+
+        <!-- Corporate Requisites & Location Card -->
+        <div class="space-y-6">
+          
+          <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8">
+            <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-file-contract text-brand-orange"></i>
+              Юридическая информация
+            </h3>
+            
+            <div class="space-y-3 text-xs text-brand-textMuted border-t border-brand-border/60 pt-4">
+              <div class="flex justify-between py-1 border-b border-brand-border/40">
+                <span class="font-semibold text-white">Наименование:</span>
+                <span>ООО «Гроссобин» / AG-Холдинг</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-brand-border/40">
+                <span class="font-semibold text-white">Торговая марка:</span>
+                <span class="text-brand-orange font-bold">«AG»® (Aegis Grease)</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-brand-border/40">
+                <span class="font-semibold text-white">Адрес головного офиса:</span>
+                <span>г. Новосибирск, ул. Большевистская, 255</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-brand-border/40">
+                <span class="font-semibold text-white">Патенты РФ:</span>
+                <span>№2041255, №2104298, №2118350</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="font-semibold text-white">Безопасность:</span>
+                <span>Гигиенический и Экологический сертификаты</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location visual card -->
+          <div class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-map-location-dot text-brand-orange"></i>
+              География применения
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-4">
+              Официальные дистрибьюторы и представительства работают в Сибири, на Дальнем Востоке, Приморье, а также в Китае, Чехии и фирменных сервисах партнеров.
+            </p>
+
+            <div class="p-4 rounded-xl bg-brand-black border border-brand-border text-xs text-brand-textMuted space-y-2">
+              <p class="text-white font-bold"><i class="fa-solid fa-truck-fast text-brand-orange mr-1"></i> Доставка продукции:</p>
+              <p>Осуществляется транспортными компаниями по всей территории России и стран СНГ.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer / Подвал -->
+  <footer class="bg-black border-t border-brand-border pt-12 pb-8 text-xs text-brand-textMuted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-extrabold text-base">
+            <span class="text-brand-orange">AG</span>TECH
+          </div>
+          <p class="leading-relaxed">
+            Органометаллокерамические ремонтные составы и нанокатализаторы нового поколения для автомобильного транспорта и промышленности.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Разделы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Главная</a></li>
+            <li><a href="auto.html" class="hover:text-brand-orange transition-colors">Каталог для авто</a></li>
+            <li><a href="biz.html" class="hover:text-brand-orange transition-colors">Промышленность и автопарки</a></li>
+            <li><a href="tech.html" class="hover:text-brand-orange transition-colors">Наука и Технология</a></li>
+            <li><a href="blog.html" class="hover:text-brand-orange transition-colors">Статьи и Блог</a></li>
+            <li><a href="contacts.html" class="hover:text-brand-orange transition-colors">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Отрасли</h4>
+          <ul class="space-y-2">
+            <li><a href="biz.html#trucks" class="hover:text-brand-orange transition-colors">Магистральный транспорт</a></li>
+            <li><a href="biz.html#agri" class="hover:text-brand-orange transition-colors">Сельхозтехника</a></li>
+            <li><a href="biz.html#industry" class="hover:text-brand-orange transition-colors">Промышленные станки и ГЭС</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Контакты</h4>
+          <div class="space-y-2">
+            <p class="text-white font-semibold">ООО «Гроссобин» / AG-Холдинг</p>
+            <p><i class="fa-solid fa-phone text-brand-orange mr-1"></i> +7 (913) 912-99-00</p>
+            <p><i class="fa-brands fa-telegram text-sky-400 mr-1"></i> Telegram: @AGtech</p>
+            <p><i class="fa-solid fa-envelope text-brand-orange mr-1"></i> 2925470@mail.ru</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p>&copy; 2026 AGTECH.RU — Все права защищены. Торговая марка «AG» зарегистрирована.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript for Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

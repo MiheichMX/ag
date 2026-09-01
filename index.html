@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGTECH.RU — Система Оптимизации Трения AG | Официальный сайт</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0d0d0f',
+              card: '#16171a',
+              cardHover: '#1f2126',
+              border: '#2a2c33',
+              orange: '#FF5500',
+              orangeHover: '#E04B00',
+              blue: '#0077FF',
+              textMuted: '#9a9ea8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0d0d0f;
+      color: #f0f1f5;
+    }
+    .glow-orange {
+      box-shadow: 0 0 35px rgba(255, 85, 0, 0.15);
+    }
+    .glow-orange-lg {
+      box-shadow: 0 0 50px rgba(255, 85, 0, 0.25);
+    }
+    .gradient-orange-bg {
+      background: radial-gradient(circle at center, rgba(255, 85, 0, 0.12) 0%, rgba(13, 13, 15, 0) 70%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+
+  <!-- Header / Сквозная Шапка -->
+  <header class="sticky top-0 z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-orange via-amber-600 to-black p-[2px] shadow-lg group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-brand-card rounded-full flex items-center justify-center font-black text-white text-lg tracking-tighter">
+            <span class="text-brand-orange">A</span>G
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-xl tracking-wider text-white uppercase leading-none">
+            AG<span class="text-brand-orange">TECH</span>
+          </span>
+          <span class="text-[10px] text-brand-textMuted tracking-widest uppercase mt-1">Органометаллокерамика</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="text-sm font-semibold text-brand-orange transition-colors">Главная</a>
+        <a href="auto.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Для авто</a>
+        <a href="biz.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Промышленность и автопарки</a>
+        <a href="tech.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Технология</a>
+        <a href="blog.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Статьи</a>
+        <a href="contacts.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Контакты</a>
+      </nav>
+
+      <!-- Contact Info Header -->
+      <div class="hidden sm:flex flex-col items-end text-right">
+        <a href="tel:+79139129900" class="font-bold text-white hover:text-brand-orange transition-colors text-base flex items-center gap-2">
+          <i class="fa-solid fa-phone text-brand-orange text-xs"></i>
+          +7 (913) 912-99-00
+        </a>
+        <a href="https://t.me/AGtech" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 mt-0.5">
+          <i class="fa-brands fa-telegram"></i>
+          @AGtech
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-brand-textMuted hover:text-white focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-card border-b border-brand-border px-4 pt-3 pb-6 space-y-3">
+      <a href="index.html" class="block text-brand-orange font-semibold text-base py-2">Главная</a>
+      <a href="auto.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Для авто</a>
+      <a href="biz.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Промышленность и автопарки</a>
+      <a href="tech.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Технология</a>
+      <a href="blog.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Статьи</a>
+      <a href="contacts.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Контакты</a>
+      <div class="pt-4 border-t border-brand-border flex flex-col gap-2">
+        <a href="tel:+79139129900" class="font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-phone text-brand-orange"></i> +7 (913) 912-99-00
+        </a>
+        <a href="https://t.me/AGtech" target="_blank" class="text-sky-400 text-sm flex items-center gap-2">
+          <i class="fa-brands fa-telegram"></i> Telegram: @AGtech
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 gradient-orange-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs sm:text-sm font-semibold mb-6">
+        <i class="fa-solid fa-shield-halved text-xs"></i>
+        <span>Российская разработка, не имеющая аналогов в мире</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase max-w-5xl mx-auto leading-tight sm:leading-none">
+        Система Оптимизации Трения <span class="text-brand-orange">AG</span>
+      </h1>
+      
+      <p class="mt-4 text-lg sm:text-2xl font-semibold text-white/90">
+        Технология для металла. Экономия для вас.
+      </p>
+
+      <p class="mt-3 text-sm sm:text-lg text-brand-textMuted max-w-3xl mx-auto font-normal">
+        Защита и восстановление узлов без разборки. Научный подход к автотерапии и продлению ресурса техники.
+      </p>
+
+      <!-- Two Main CTAs from Mockup -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+        <a href="biz.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-base sm:text-lg shadow-lg shadow-brand-orange/25 hover:shadow-brand-orange/40 transform hover:-translate-y-0.5 transition-all text-center">
+          <i class="fa-solid fa-truck-ramp-box mr-2"></i> Для бизнеса и автопарков
+        </a>
+        <a href="auto.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-brand-cardHover border border-brand-border hover:border-brand-orange text-white font-extrabold text-base sm:text-lg transform hover:-translate-y-0.5 transition-all text-center">
+          <i class="fa-solid fa-car mr-2 text-brand-orange"></i> Для моего автомобиля
+        </a>
+      </div>
+
+      <!-- 3 Category Cards (From Old Site Screenshot & Mockup Layout) -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <!-- Card 1: Easy Auto -->
+        <a href="auto.html" class="group relative rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-orange transition-all duration-300 overflow-hidden flex flex-col justify-between glow-orange">
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-80 z-10"></div>
+          <div class="relative z-20">
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Сегмент B2C</span>
+            <h3 class="text-xl font-extrabold text-white mt-1 group-hover:text-brand-orange transition-colors">AG для легковых автомобилей</h3>
+            <p class="text-xs text-brand-textMuted mt-2">Легкий пуск, восстановление компрессии, тишина двигателя и трансмиссии.</p>
+          </div>
+          <div class="relative z-20 mt-6 flex items-center text-sm font-bold text-white group-hover:translate-x-1 transition-transform">
+            <span>В каталог товаров</span>
+            <i class="fa-solid fa-arrow-right ml-2 text-brand-orange"></i>
+          </div>
+        </a>
+
+        <!-- Card 2: Trucks -->
+        <a href="biz.html#trucks" class="group relative rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-orange transition-all duration-300 overflow-hidden flex flex-col justify-between glow-orange">
+          <div class="relative z-20">
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Сегмент B2B</span>
+            <h3 class="text-xl font-extrabold text-white mt-1 group-hover:text-brand-orange transition-colors">AG для грузовых автомобилей</h3>
+            <p class="text-xs text-brand-textMuted mt-2">Сокращение расхода топлива до 15-25%, рост моторесурса и защита от простоя.</p>
+          </div>
+          <div class="relative z-20 mt-6 flex items-center text-sm font-bold text-white group-hover:translate-x-1 transition-transform">
+            <span>Решения для автопарков</span>
+            <i class="fa-solid fa-arrow-right ml-2 text-brand-orange"></i>
+          </div>
+        </a>
+
+        <!-- Card 3: Industry -->
+        <a href="biz.html#industry" class="group relative rounded-2xl bg-brand-card border border-brand-border p-6 hover:border-brand-orange transition-all duration-300 overflow-hidden flex flex-col justify-between glow-orange">
+          <div class="relative z-20">
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Промышленность</span>
+            <h3 class="text-xl font-extrabold text-white mt-1 group-hover:text-brand-orange transition-colors">AG в промышленности</h3>
+            <p class="text-xs text-brand-textMuted mt-2">Обработка станков, редукторов, гидрогенераторов, спецтехники и судовых узлов.</p>
+          </div>
+          <div class="relative z-20 mt-6 flex items-center text-sm font-bold text-white group-hover:translate-x-1 transition-transform">
+            <span>Промышленные кейсы</span>
+            <i class="fa-solid fa-arrow-right ml-2 text-brand-orange"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Three Technological Pillars (From PDF Page 1 Mockup) -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+        <div class="bg-brand-card/80 border border-brand-border rounded-2xl p-6 hover:border-brand-orange/50 transition-all">
+          <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-4 text-lg">
+            <i class="fa-solid fa-atom"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Вживляется в металл</h4>
+          <p class="text-sm text-brand-textMuted leading-relaxed">
+            Не смывается при замене масла и промывках. Глубина диффузии каталитических структур в подложку металла достигает <strong class="text-white">200 мкм</strong>.
+          </p>
+        </div>
+
+        <div class="bg-brand-card/80 border border-brand-border rounded-2xl p-6 hover:border-brand-orange/50 transition-all">
+          <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-4 text-lg">
+            <i class="fa-solid fa-notes-medical"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Умная автотерапия</h4>
+          <p class="text-sm text-brand-textMuted leading-relaxed">
+            Препарат подстраивается под конкретные нагрузки в каждой паре трения и идеально выравнивает локальную геометрию износа.
+          </p>
+        </div>
+
+        <div class="bg-brand-card/80 border border-brand-border rounded-2xl p-6 hover:border-brand-orange/50 transition-all">
+          <div class="w-10 h-10 rounded-lg bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-4 text-lg">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Блокирует разрушение</h4>
+          <p class="text-sm text-brand-textMuted leading-relaxed">
+            Полностью останавливает водородное охрупчивание металла и снижает коэффициент трения в узле до рекордных <strong class="text-white">0.003</strong>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Feature Highlight Banner (Screenshot Replica) -->
+  <section class="py-12 bg-brand-black border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center md:text-left">
+        
+        <!-- Left Column -->
+        <div class="space-y-6">
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border">
+            <p class="text-sm font-bold text-white uppercase tracking-wide">
+              Расход топлива снижается до <span class="text-brand-orange">10–25%</span>
+            </p>
+            <p class="text-xs text-brand-textMuted mt-1">Повышается мощность и приемистость, устраняется детонация на низкосортном бензине.</p>
+          </div>
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border">
+            <p class="text-sm font-bold text-white uppercase tracking-wide">
+              Экологичность и Выхлоп
+            </p>
+            <p class="text-xs text-brand-textMuted mt-1">Токсичность выхлопных газов оптимизируется без специальных каталитических нейтрализаторов.</p>
+          </div>
+        </div>
+
+        <!-- Center Highlight Badge (Matching PDF & Screenshot) -->
+        <div class="bg-gradient-to-br from-brand-orange to-amber-600 rounded-3xl p-8 text-center text-white shadow-2xl glow-orange-lg transform hover:scale-[1.02] transition-transform">
+          <span class="text-xs font-black uppercase tracking-widest text-black/80">Гарантия сохранения слоя</span>
+          <div class="text-3xl sm:text-4xl font-black mt-2 leading-none uppercase">
+            Сохраняется на пробеге более
+          </div>
+          <div class="text-4xl sm:text-5xl font-black mt-3 text-black">
+            120-150 тыс. км
+          </div>
+          <p class="text-xs font-semibold mt-4 text-white/90">
+            Официально гарантированный результат — 50 000 км. По факту — более 150 000 км штатной эксплуатации!
+          </p>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-6">
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border">
+            <p class="text-sm font-bold text-white uppercase tracking-wide">
+              Двигатель легко запускается
+            </p>
+            <p class="text-xs text-brand-textMuted mt-1">Катализаторы платиново-палладиевой группы обеспечивают легкий пуск даже в сильный мороз.</p>
+          </div>
+          <div class="bg-brand-card p-6 rounded-2xl border border-brand-border">
+            <p class="text-sm font-bold text-white uppercase tracking-wide">
+              Защита от задиров
+            </p>
+            <p class="text-xs text-brand-textMuted mt-1">Предотвращает механическое разрушение при аварийной потере масла в течение 3–10 часов.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sales Leaders Section / Лидеры продаж -->
+  <section class="py-16 bg-brand-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase">Лидеры продаж</h2>
+        <p class="text-sm text-brand-textMuted mt-2">Флагманская розничная линейка органометаллокерамических составов AG Q-MAX</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Product Card 1: DVS -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col items-center text-center hover:border-brand-orange transition-all group">
+          <div class="w-full aspect-[4/5] bg-brand-black rounded-xl mb-6 flex items-center justify-center p-4 border border-brand-border/50 overflow-hidden">
+            <img 
+              src="images/prod-qmax-dvs.png" 
+              alt="AG Q-MAX для ДВС" 
+              class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x750/16171a/ff5500?text=AG+Q-MAX+%D0%94%D0%92%D0%A1';"
+            />
+          </div>
+          <h3 class="text-xl font-extrabold text-white mb-2">AG Q-MAX для ДВС</h3>
+          <p class="text-xs text-brand-textMuted mb-6 line-clamp-3">
+            Восстановление компрессии, устранение задиров, нормализация давления масла и уверенный пуск в сильный мороз.
+          </p>
+          <a href="auto.html#dvs" class="mt-auto w-full py-3 px-6 rounded-xl bg-brand-black hover:bg-brand-orange border border-brand-border hover:border-brand-orange text-white font-bold text-sm transition-all text-center">
+            Подробнее
+          </a>
+        </div>
+
+        <!-- Product Card 2: AKPP -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col items-center text-center hover:border-brand-orange transition-all group">
+          <div class="w-full aspect-[4/5] bg-brand-black rounded-xl mb-6 flex items-center justify-center p-4 border border-brand-border/50 overflow-hidden">
+            <img 
+              src="images/prod-qmax-akpp.png" 
+              alt="AG Q-MAX для АКПП" 
+              class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x750/16171a/ff5500?text=AG+Q-MAX+%D0%90%D0%9A%D0%9F%D0%9F';"
+            />
+          </div>
+          <h3 class="text-xl font-extrabold text-white mb-2">AG Q-MAX для АКПП</h3>
+          <p class="text-xs text-brand-textMuted mb-6 line-clamp-3">
+            Устранение пинков и толчков, защита гидронасоса, восстановление внутреннего гидравлического давления.
+          </p>
+          <a href="auto.html#akpp" class="mt-auto w-full py-3 px-6 rounded-xl bg-brand-black hover:bg-brand-orange border border-brand-border hover:border-brand-orange text-white font-bold text-sm transition-all text-center">
+            Подробнее
+          </a>
+        </div>
+
+        <!-- Product Card 3: MKPP -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col items-center text-center hover:border-brand-orange transition-all group">
+          <div class="w-full aspect-[4/5] bg-brand-black rounded-xl mb-6 flex items-center justify-center p-4 border border-brand-border/50 overflow-hidden">
+            <img 
+              src="images/prod-qmax-mkpp.png" 
+              alt="AG Q-MAX для МКПП" 
+              class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x750/16171a/ff5500?text=AG+Q-MAX+%D0%9C%D0%9A%D0%9F%D0%9F';"
+            />
+          </div>
+          <h3 class="text-xl font-extrabold text-white mb-2">AG Q-MAX для МКПП</h3>
+          <p class="text-xs text-brand-textMuted mb-6 line-clamp-3">
+            Четкое переключение передач, устранение гула и шумов, повышение наката автомобиля в 2-3 раза.
+          </p>
+          <a href="auto.html#mkpp" class="mt-auto w-full py-3 px-6 rounded-xl bg-brand-black hover:bg-brand-orange border border-brand-border hover:border-brand-orange text-white font-bold text-sm transition-all text-center">
+            Подробнее
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="auto.html" class="inline-flex items-center gap-2 text-brand-orange hover:text-white font-bold text-sm tracking-wide transition-colors">
+          <span>Смотреть весь каталог продукции AG</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Results in Numbers / Результаты в цифрах -->
+  <section class="py-12 bg-brand-card/50 border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="text-4xl lg:text-5xl font-black text-brand-orange">15–25%</div>
+          <div class="text-sm font-bold text-white mt-2">Экономия топлива</div>
+          <p class="text-xs text-brand-textMuted mt-1">Достигается за счет снижения трения и выравнивания компрессии</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="text-4xl lg:text-5xl font-black text-brand-orange">+500%</div>
+          <div class="text-sm font-bold text-white mt-2">Рост задиростойкости</div>
+          <p class="text-xs text-brand-textMuted mt-1">За счет сверхпрочной органометаллокерамической структуры</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border">
+          <div class="text-4xl lg:text-5xl font-black text-brand-orange">120-150 тыс.</div>
+          <div class="text-sm font-bold text-white mt-2">Км постоянного эффекта</div>
+          <p class="text-xs text-brand-textMuted mt-1">Слой вживляется на 200 мкм и не вымывается при замене масла</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Military Heritage & Science Section / Военное наследие и доверие -->
+  <section class="py-16 bg-brand-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-gradient-to-br from-brand-card to-brand-black border border-brand-border rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          <div>
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-widest">Военные технологии СССР</span>
+            <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 leading-tight">
+              От атомных субмарин до вашего автомобиля
+            </h2>
+            
+            <p class="text-sm text-brand-textMuted mt-4 leading-relaxed">
+              Технология ССРС «AG» разработана в <strong class="text-white">1964 году</strong> физиком-ядерщиком <strong class="text-white">Геннадием Михайловичем Яковлевым</strong> совместно с Нобелевским лауреатом академиком Н.Н. Семёновым.
+            </p>
+            <p class="text-sm text-brand-textMuted mt-3 leading-relaxed">
+              С 1976 по 1982 гг. состав официально применялся для защиты гребных валов и узлов трения <strong class="text-white">атомных подводных лодок Тихоокеанского флота</strong>. Разработка оставалась под грифом «Секретно» в течение 30 лет и была запатентована для гражданского применения только в 1990-х годах.
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-4 text-xs font-semibold text-white">
+              <div class="flex items-center gap-2 bg-brand-black/80 px-3 py-2 rounded-lg border border-brand-border">
+                <i class="fa-solid fa-certificate text-brand-orange"></i>
+                <span>20+ Патентов РФ</span>
+              </div>
+              <div class="flex items-center gap-2 bg-brand-black/80 px-3 py-2 rounded-lg border border-brand-border">
+                <i class="fa-solid fa-microscope text-brand-orange"></i>
+                <span>30+ Ноу-Хау</span>
+              </div>
+              <div class="flex items-center gap-2 bg-brand-black/80 px-3 py-2 rounded-lg border border-brand-border">
+                <i class="fa-solid fa-file-contract text-brand-orange"></i>
+                <span>Экологический сертификат</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Verified Institutes -->
+          <div class="bg-brand-black/60 border border-brand-border/80 rounded-2xl p-6 sm:p-8">
+            <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-building-columns text-brand-orange"></i>
+              Официально подтверждено ведущими НИИ РФ:
+            </h3>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-brand-textMuted">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-brand-orange mt-1"></i>
+                <span>Сибирское отделение Российской Академии Наук (СО РАН)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-brand-orange mt-1"></i>
+                <span>Военная Академия Тыла и Транспорта (Кафедра ремонта автотехники)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-brand-orange mt-1"></i>
+                <span>Лаборатория radio-изотопных исследований ДВС и ГСМ СПбУВК</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-brand-orange mt-1"></i>
+                <span>Новосибирская Государственная Академия Водного Транспорта (НГАВТ)</span>
+              </li>
+            </ul>
+
+            <div class="mt-6 pt-6 border-t border-brand-border/60">
+              <a href="tech.html" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+                <span>Подробнее о научном фундаменте и патентах</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer / Подвал -->
+  <footer class="bg-black border-t border-brand-border pt-12 pb-8 text-xs text-brand-textMuted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Col 1: About -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-extrabold text-base">
+            <span class="text-brand-orange">AG</span>TECH
+          </div>
+          <p class="leading-relaxed">
+            Органометаллокерамические ремонтные составы и нанокатализаторы нового поколения для автомобильного транспорта и промышленности.
+          </p>
+          <p class="text-[11px] text-brand-textMuted/70">
+            Разработка зародилась в ВПК СССР в 1964 году.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Разделы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Главная</a></li>
+            <li><a href="auto.html" class="hover:text-brand-orange transition-colors">Каталог для авто</a></li>
+            <li><a href="biz.html" class="hover:text-brand-orange transition-colors">Промышленность и автопарки</a></li>
+            <li><a href="tech.html" class="hover:text-brand-orange transition-colors">Наука и Технология</a></li>
+            <li><a href="blog.html" class="hover:text-brand-orange transition-colors">Статьи и Блог</a></li>
+            <li><a href="contacts.html" class="hover:text-brand-orange transition-colors">Контакты</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: B2B Solutions -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Отрасли</h4>
+          <ul class="space-y-2">
+            <li><a href="biz.html#trucks" class="hover:text-brand-orange transition-colors">Магистральный транспорт</a></li>
+            <li><a href="biz.html#agri" class="hover:text-brand-orange transition-colors">Сельхозтехника</a></li>
+            <li><a href="biz.html#industry" class="hover:text-brand-orange transition-colors">Промышленные станки и ГЭС</a></li>
+            <li><a href="biz.html#marine" class="hover:text-brand-orange transition-colors">Судоремонт</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contacts -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Контакты</h4>
+          <div class="space-y-2">
+            <p class="text-white font-semibold">ООО «Гроссобин» / AG-Холдинг</p>
+            <p><i class="fa-solid fa-phone text-brand-orange mr-1"></i> +7 (913) 912-99-00</p>
+            <p><i class="fa-brands fa-telegram text-sky-400 mr-1"></i> Telegram: @AGtech</p>
+            <p><i class="fa-solid fa-envelope text-brand-orange mr-1"></i> 2925470@mail.ru</p>
+            <p class="text-[11px] pt-1">Новосибирск, ул. Большевистская, 255</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p>&copy; 2026 AGTECH.RU — Все права защищены. Торговая марка «AG» зарегистрирована.</p>
+        <p class="text-brand-textMuted/60">
+          The site was created by Miheich-master
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

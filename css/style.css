@@ -2,19 +2,18 @@
    AGTECH.RU — CSS STYLESHEET (Dark Theme)
    ========================================================================== */
 
-/* --- Базовые сбросы и переменные --- */
 :root {
-  --bg-main: #0d0d0f;        /* Глубокий темный фон */
-  --bg-card: #16171a;        /* Фон карточек и блоков */
-  --bg-card-hover: #1e2024;  /* Фон карточки при наведении */
-  --accent-orange: #ff5500;  /* Фирменный оранжевый AG */
+  --bg-main: #0d0d0f;
+  --bg-card: #16171a;
+  --bg-card-hover: #1e2024;
+  --accent-orange: #ff5500;
   --accent-orange-hover: #e04b00;
-  --accent-blue: #0077ff;    /* Акцентный синий */
-  --text-main: #f0f1f5;      /* Основной светлый текст */
-  --text-muted: #9a9ea8;     /* Приглушенный серый текст */
-  --border-color: #2a2c33;   /* Тонкие рамки */
+  --accent-blue: #0077ff;
+  --text-main: #f0f1f5;
+  --text-muted: #9a9ea8;
+  --border-color: #2a2c33;
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --max-width: 1200px;       /* Максимальная ширина контента */
+  --max-width: 1280px;
 }
 
 * {
@@ -79,11 +78,6 @@ ul {
   color: var(--accent-orange);
 }
 
-.logo img {
-  height: 48px;
-  width: auto;
-}
-
 .nav__list {
   display: flex;
   gap: 24px;
@@ -117,49 +111,93 @@ ul {
   font-size: 13px;
 }
 
-/* --- Главный Hero-баннер --- */
+/* --- Главный Hero-баннер (картинка строго до разделительной линии) --- */
 .hero {
-  padding: 80px 0 60px;
-  text-align: center;
-  background: radial-gradient(circle at center, rgba(255, 85, 0, 0.08) 0%, rgba(13, 13, 15, 0) 70%);
+  position: relative;
+  padding: 50px 0 60px;
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 18% 45%, rgba(255, 85, 0, 0.22) 0%, transparent 60%),
+    linear-gradient(to right, #0d0d0f 30%, rgba(13, 13, 15, 0.75) 58%, rgba(13, 13, 15, 0.15) 100%),
+    linear-gradient(to top, #0d0d0f 0%, transparent 15%),
+    url('../images/hero-macro.jpg');
+  background-position: left center, left center, bottom center, right top;
+  background-repeat: no-repeat;
+  background-size: auto, auto, 100% 100%, contain;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero__content {
+  max-width: 650px;
+  text-align: left;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 85, 0, 0.12);
+  border: 1px solid rgba(255, 85, 0, 0.4);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-orange);
+  margin-bottom: 24px;
 }
 
 .hero__title {
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
   margin-bottom: 16px;
   text-transform: uppercase;
+  text-align: left;
+}
+
+.hero__title span {
+  color: var(--accent-orange);
+}
+
+.hero__tagline {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
 .hero__subtitle {
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 800px;
-  margin: 0 auto 40px;
+  margin-bottom: 36px;
 }
 
 .hero__actions {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 50px;
+  justify-content: flex-start;
+  gap: 16px;
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 16px 32px;
-  border-radius: 6px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
   border: none;
+  transition: all 0.25s ease;
 }
 
 .btn--orange {
   background-color: var(--accent-orange);
   color: #fff;
+  box-shadow: 0 10px 25px -5px rgba(255, 85, 0, 0.3);
 }
 
 .btn--orange:hover {
@@ -168,9 +206,9 @@ ul {
 }
 
 .btn--outline {
-  background-color: transparent;
+  background-color: var(--bg-card);
   color: var(--text-main);
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
 }
 
 .btn--outline:hover {
@@ -179,20 +217,85 @@ ul {
   transform: translateY(-2px);
 }
 
-/* --- Сетка «Уникальность / Тройка» (Как на макете) --- */
+/* --- Секция с 6 плашками под линией --- */
+.hero-cards-section {
+  padding: 40px 0 20px;
+  background-color: var(--bg-main);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.cat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: left;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cat-card:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+}
+
+.cat-card__tag {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent-orange);
+  margin-bottom: 8px;
+}
+
+.cat-card__title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.cat-card__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.cat-card__link {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-card:hover .cat-card__link {
+  color: var(--accent-orange);
+}
+
+/* --- Сетка «Уникальность / Тройка» --- */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 40px;
 }
 
 .feature-card {
-  background-color: var(--bg-card);
+  background-color: rgba(22, 23, 26, 0.85);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 24px;
-  text-align: center;
+  text-align: left;
   transition: transform 0.2s, border-color 0.2s;
 }
 
@@ -201,16 +304,30 @@ ul {
   transform: translateY(-4px);
 }
 
+.feature-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 85, 0, 0.1);
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
 .feature-card__title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--accent-orange);
-  margin-bottom: 12px;
+  color: #fff;
+  margin-bottom: 8px;
 }
 
 .feature-card__text {
   font-size: 14px;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* --- Секция «Лидеры продаж» --- */
@@ -224,6 +341,7 @@ ul {
   font-weight: 800;
   margin-bottom: 40px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .products-grid {
@@ -235,26 +353,55 @@ ul {
 .product-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: border-color 0.25s ease;
+}
+
+.product-card:hover {
+  border-color: var(--accent-orange);
+}
+
+.product-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: #0d0d0f;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(42, 44, 51, 0.5);
 }
 
 .product-card__img {
-  width: 100%;
-  max-width: 240px;
-  height: 300px; /* Сохраняем пропорцию 4:5 для заглушек 600x750 */
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.05);
 }
 
 .product-card__title {
   font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.product-card__desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 /* --- Секция «Результаты в цифрах» --- */
@@ -264,20 +411,27 @@ ul {
   gap: 20px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 40px;
   text-align: center;
 }
 
 .counter-item__num {
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 900;
   color: var(--accent-orange);
   margin-bottom: 8px;
 }
 
 .counter-item__label {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.counter-item__sub {
+  font-size: 13px;
   color: var(--text-muted);
 }
 
@@ -285,24 +439,49 @@ ul {
 .footer {
   background-color: #08080a;
   border-top: 1px solid var(--border-color);
-  padding: 40px 0;
+  padding: 50px 0 30px;
   margin-top: 80px;
   font-size: 14px;
   color: var(--text-muted);
 }
 
-.footer__container {
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer__bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(42, 44, 51, 0.6);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 12px;
 }
 
-/* --- Адаптивность под мобильные --- */
-@media (max-width: 900px) {
-  .nav__list { display: none; } /* Позже добавим мобильное меню-гамбургер */
-  .features-grid, .products-grid, .counters-grid {
+/* --- Адаптивность --- */
+@media (max-width: 992px) {
+  .hero {
+    background-size: auto, auto, 100% auto;
+    background-position: center;
+    padding: 60px 0;
+  }
+  .hero__content {
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero__title {
+    text-align: center;
+    font-size: 34px;
+  }
+  .hero__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .categories-grid, .features-grid, .products-grid, .counters-grid, .footer__grid {
     grid-template-columns: 1fr;
   }
-  .hero__title { font-size: 28px; }
-  .hero__actions { flex-direction: column; }
+  .nav__list { display: none; }
 }

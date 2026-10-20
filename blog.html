@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статьи, Исследования и Блог — AGTECH.RU</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0d0d0f',
+              card: '#16171a',
+              cardHover: '#1f2126',
+              border: '#2a2c33',
+              orange: '#FF5500',
+              orangeHover: '#E04B00',
+              textMuted: '#9a9ea8'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0d0d0f;
+      color: #f0f1f5;
+    }
+    .gradient-orange-bg {
+      background: radial-gradient(circle at center, rgba(255, 85, 0, 0.12) 0%, rgba(13, 13, 15, 0) 70%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+
+  <!-- Header / Сквозная Шапка -->
+  <header class="sticky top-0 z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-orange via-amber-600 to-black p-[2px] shadow-lg group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-brand-card rounded-full flex items-center justify-center font-black text-white text-lg tracking-tighter">
+            <span class="text-brand-orange">A</span>G
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-black text-xl tracking-wider text-white uppercase leading-none">
+            AG<span class="text-brand-orange">TECH</span>
+          </span>
+          <span class="text-[10px] text-brand-textMuted tracking-widest uppercase mt-1">Органометаллокерамика</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="index.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Главная</a>
+        <a href="auto.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Для авто</a>
+        <a href="biz.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Промышленность и автопарки</a>
+        <a href="tech.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Технология</a>
+        <a href="blog.html" class="text-sm font-semibold text-brand-orange transition-colors">Статьи</a>
+        <a href="contacts.html" class="text-sm font-medium text-brand-textMuted hover:text-brand-orange transition-colors">Контакты</a>
+      </nav>
+
+      <!-- Contact Info Header -->
+      <div class="hidden sm:flex flex-col items-end text-right">
+        <a href="tel:+79139129900" class="font-bold text-white hover:text-brand-orange transition-colors text-base flex items-center gap-2">
+          <i class="fa-solid fa-phone text-brand-orange text-xs"></i>
+          +7 (913) 912-99-00
+        </a>
+        <a href="https://t.me/AGtech" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1 mt-0.5">
+          <i class="fa-brands fa-telegram"></i>
+          @AGtech
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 text-brand-textMuted hover:text-white focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-card border-b border-brand-border px-4 pt-3 pb-6 space-y-3">
+      <a href="index.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Главная</a>
+      <a href="auto.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Для авто</a>
+      <a href="biz.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Промышленность и автопарки</a>
+      <a href="tech.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Технология</a>
+      <a href="blog.html" class="block text-brand-orange font-semibold text-base py-2">Статьи</a>
+      <a href="contacts.html" class="block text-brand-textMuted hover:text-white font-medium text-base py-2">Контакты</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-12 lg:py-16 gradient-orange-bg border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+        База знаний и Статьи <span class="text-brand-orange">AGTECH</span>
+      </h1>
+      <p class="mt-3 text-sm sm:text-lg text-brand-textMuted max-w-2xl mx-auto">
+        Научно-технические разборы, экономика эксплуатации автопарков, практические инструкции и ответы на частые вопросы.
+      </p>
+
+      <!-- Filter Tags -->
+      <div class="mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
+        <button onclick="filterArticles('all')" class="filter-btn active px-5 py-2.5 rounded-full bg-brand-orange text-white text-xs sm:text-sm font-bold transition-all shadow-lg">
+          <i class="fa-solid fa-layer-group mr-1.5"></i> Все статьи
+        </button>
+        <button onclick="filterArticles('b2b')" class="filter-btn px-5 py-2.5 rounded-full bg-brand-card hover:bg-brand-cardHover border border-brand-border text-brand-textMuted hover:text-white text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-truck-ramp-box mr-1.5 text-brand-orange"></i> B2B / Автопаркам
+        </button>
+        <button onclick="filterArticles('b2c')" class="filter-btn px-5 py-2.5 rounded-full bg-brand-card hover:bg-brand-cardHover border border-brand-border text-brand-textMuted hover:text-white text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-car mr-1.5 text-brand-orange"></i> B2C / Автовладельцам
+        </button>
+        <button onclick="filterArticles('tech')" class="filter-btn px-5 py-2.5 rounded-full bg-brand-card hover:bg-brand-cardHover border border-brand-border text-brand-textMuted hover:text-white text-xs sm:text-sm font-semibold transition-all">
+          <i class="fa-solid fa-atom mr-1.5 text-brand-orange"></i> Наука и Трибология
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid Section -->
+  <section class="py-12 bg-brand-black flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articlesGrid">
+
+        <!-- Article Card 1 (B2B Case) -->
+        <article class="article-card b2b bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/case-daf.jpg" alt="Кейс DAF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Кейс+DAF+/+IVECO';" />
+            <span class="absolute top-3 left-3 bg-brand-orange/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              B2B / Автопаркам
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 7 мин чтения</span>
+              <span>•</span>
+              <span>Испытания и Протоколы</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              Кейс: Восстановление двигателей 5 магистральных тягачей DAF и IVECO без разборки
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Результаты подконтрольной эксплуатации на маршруте Новосибирск — Москва (112 500 км пробега). Сокращение расхода топлива на 11% и экономия более 1.4 млн рублей.
+            </p>
+            <a href="tech.html" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Читать исследование</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 2 (B2B TCO) -->
+        <article class="article-card b2b bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/sector-industry.jpg" alt="Экономика автопарка" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Экономика+TCO';" />
+            <span class="absolute top-3 left-3 bg-brand-orange/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              B2B / Автопаркам
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 5 мин чтения</span>
+              <span>•</span>
+              <span>Экономика TCO</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              Экономика владения коммерческим автопарком: Как снизить TCO на 15–25%
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Инструкция для финансовых директоров и главных инженеров. Прямой расчёт окупаемости на снижении расхода топлива и увеличении межсервисных интервалов.
+            </p>
+            <a href="biz.html#calc" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Открыть калькулятор ROI</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 3 (Tech / Hydrogen) -->
+        <article class="article-card tech bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/micro-before.jpg" alt="Водородный износ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Водородный+Износ';" />
+            <span class="absolute top-3 left-3 bg-sky-600/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              Наука и Трибология
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 8 мин чтения</span>
+              <span>•</span>
+              <span>Физика Процессов</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              Эффект «водородного охрупчивания»: Скрытый первоисточник разрушения металла
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Почему металл крошится не от трения, а на глубине 200 микрон под воздействием атомарного водорода из продуктов распада смазки, и как «AG» блокирует этот процесс.
+            </p>
+            <a href="tech.html" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Читать научный разбор</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 4 (B2C / Myth) -->
+        <article class="article-card b2c bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/prod-qmax-dvs.png" alt="Не присадка" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Не+Присадка';" />
+            <span class="absolute top-3 left-3 bg-emerald-600/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              B2C / Автовладельцам
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 4 мин чтения</span>
+              <span>•</span>
+              <span>Ликбез</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              Не присадка, а система: Почему органометаллокерамика не смывается при замене масла
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Принципиальное отличие масляных модификаторов от ремонтно-восстановительного состава, который образует несмываемый монокристалл на кристаллической решетке.
+            </p>
+            <a href="auto.html" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Перейти в каталог авто</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 5 (B2C / Engines) -->
+        <article class="article-card b2c bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/sector-agri.jpg" alt="Тишина мотора" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Второе+Дыхание';" />
+            <span class="absolute top-3 left-3 bg-emerald-600/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              B2C / Автовладельцам
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 6 мин чтения</span>
+              <span>•</span>
+              <span>Комфорт и ДВС</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              Секрет «шёпота» мотора: Как вернуть тишину, плавность и компрессию двигателю с пробегом 150 000+ км
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Анализ причин шума, стука гидриков и вибраций. Разбор действия платиново-палладиевой группы катализаторов на выравнивание параметров цилиндров.
+            </p>
+            <a href="auto.html#dvs" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Решение для ДВС</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 6 (Tech / Catalysts) -->
+        <article class="article-card tech bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col hover:border-brand-orange transition-all duration-300 group">
+          <div class="h-48 bg-brand-cardHover relative overflow-hidden flex items-center justify-center">
+            <img src="images/micro-after.jpg" alt="Нанокатализаторы" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://placehold.co/600x400/16171a/ff5500?text=Нанокатализаторы';" />
+            <span class="absolute top-3 left-3 bg-sky-600/90 backdrop-blur-sm text-white text-[11px] font-extrabold uppercase px-3 py-1 rounded-full">
+              Наука и Трибология
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-3 text-xs text-brand-textMuted mb-3">
+              <span><i class="fa-regular fa-clock mr-1"></i> 9 мин чтения</span>
+              <span>•</span>
+              <span>Состав и Химия</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-brand-orange transition-colors leading-snug">
+              49 компонентов формулы Яковлева: Роль редких земель, фуллеренов и тантала в автотерапии
+            </h3>
+            <p class="text-xs text-brand-textMuted leading-relaxed mb-6 line-clamp-3">
+              Почему в формуле сочетаются мягкие и жесткие структуры, как минеральные иголки пронизывают 200-микронный слой и за счет чего падает коэффициент трения до 0.003.
+            </p>
+            <a href="tech.html" class="mt-auto inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors">
+              <span>Подробнее о науке</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="py-12 bg-brand-card border-t border-brand-border">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black text-white uppercase">Есть технический вопрос по вашей технике?</h2>
+      <p class="text-sm text-brand-textMuted mt-2">
+        Главные технологи и эксперты AGTECH бесплатно проконсультируют и подберут оптимальную методику обработки.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="contacts.html" class="px-8 py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-extrabold text-sm transition-all">
+          Задать вопрос технологу
+        </a>
+        <a href="tel:+79139129900" class="px-8 py-3.5 rounded-xl bg-brand-black hover:bg-brand-cardHover border border-brand-border text-white font-bold text-sm transition-all">
+          <i class="fa-solid fa-phone text-brand-orange mr-2"></i> +7 (913) 912-99-00
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Подвал -->
+  <footer class="bg-black border-t border-brand-border pt-12 pb-8 text-xs text-brand-textMuted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-extrabold text-base">
+            <span class="text-brand-orange">AG</span>TECH
+          </div>
+          <p class="leading-relaxed">
+            Органометаллокерамические ремонтные составы и нанокатализаторы нового поколения для автомобильного транспорта и промышленности.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Разделы</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-brand-orange transition-colors">Главная</a></li>
+            <li><a href="auto.html" class="hover:text-brand-orange transition-colors">Каталог для авто</a></li>
+            <li><a href="biz.html" class="hover:text-brand-orange transition-colors">Промышленность и автопарки</a></li>
+            <li><a href="tech.html" class="hover:text-brand-orange transition-colors">Наука и Технология</a></li>
+            <li><a href="blog.html" class="hover:text-brand-orange transition-colors">Статьи и Блог</a></li>
+            <li><a href="contacts.html" class="hover:text-brand-orange transition-colors">Контакты</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Отрасли</h4>
+          <ul class="space-y-2">
+            <li><a href="biz.html#trucks" class="hover:text-brand-orange transition-colors">Магистральный транспорт</a></li>
+            <li><a href="biz.html#agri" class="hover:text-brand-orange transition-colors">Сельхозтехника</a></li>
+            <li><a href="biz.html#industry" class="hover:text-brand-orange transition-colors">Промышленные станки и ГЭС</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3 uppercase tracking-wider">Контакты</h4>
+          <div class="space-y-2">
+            <p class="text-white font-semibold">ООО «Гроссобин» / AG-Холдинг</p>
+            <p><i class="fa-solid fa-phone text-brand-orange mr-1"></i> +7 (913) 912-99-00</p>
+            <p><i class="fa-brands fa-telegram text-sky-400 mr-1"></i> Telegram: @AGtech</p>
+            <p><i class="fa-solid fa-envelope text-brand-orange mr-1"></i> 2925470@mail.ru</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p>&copy; 2026 AGTECH.RU — Все права защищены. Торговая марка «AG» зарегистрирована.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript for Filter Tags & Mobile Menu -->
+  <script>
+    function filterArticles(category) {
+      const cards = document.querySelectorAll('.article-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-brand-orange', 'text-white');
+        btn.classList.add('bg-brand-card', 'text-brand-textMuted');
+      });
+
+      event.currentTarget.classList.add('active', 'bg-brand-orange', 'text-white');
+      event.currentTarget.classList.remove('bg-brand-card', 'text-brand-textMuted');
+
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.style.display = 'flex';
+        } else if (card.classList.contains(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
